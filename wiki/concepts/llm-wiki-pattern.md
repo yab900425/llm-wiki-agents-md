@@ -1,0 +1,10 @@
+# LLM Wiki 做法
+- 一般 RAG 每次提問都重新檢索片段，知識不會累積；LLM Wiki 改成讓 LLM 持續維護互相連結的 markdown 頁面。[S1]
+- 三層：raw（不可改的原始資料）、wiki（LLM 維護）、schema（CLAUDE.md 或 AGENTS.md）。[S1]
+- ingest：一次一份，讀完後討論重點、寫摘要頁、更新 index、更新相關概念頁、寫 log；作者說一份可能動到 10–15 頁。[S1]
+- query：先讀 index 再深入，好答案要存回 wiki。輸出可以是頁面、表格、Marp 簡報、圖表。[S1]
+- lint：找矛盾、過時說法、孤兒頁、缺頁、缺交叉連結。[S1]
+- index.md 是頁面目錄，log.md 是只往後加的紀錄。[S1]
+- 作者說只靠 index 在約 100 份來源、數百頁時仍可運作。[S1]
+- 這是想法文件，不是實驗：細節都是選用，要依主題調整。[S1]
+相關：[[schema-file]]

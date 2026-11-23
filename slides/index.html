@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AGENTS.md 教學簡報</title>
+<style>
+:root{--navy:#0d2c5c;--ink:#15151a;--paper:#fff;--stone:#f4f2ed;--rule:#d8d4ca;--muted:#6a6862;--accent:#b23a2e;
+--serif:"Noto Serif TC","Songti TC","PMingLiU",serif;--sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--stone);color:var(--ink);font-family:var(--sans);line-height:1.7}
+.deck{max-width:1100px;margin:0 auto;padding:16px}
+.slide{background:var(--paper);border-top:6px solid var(--navy);padding:44px 52px 28px;margin:0 0 20px;min-height:520px;display:flex;flex-direction:column}
+.kicker{font-size:.78rem;letter-spacing:.14em;color:var(--accent);margin:0 0 6px;font-weight:600}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.35}
+h2{font-size:1.9rem;color:var(--navy);margin-bottom:22px}
+h3{font-size:1.1rem;margin-bottom:8px;color:var(--navy)}
+.body{flex:1;font-size:1.15rem}
+ul{margin:0;padding-left:1.2em}li{margin:.4em 0}
+.note{margin-top:22px;padding:10px 14px;border-left:3px solid var(--accent);background:var(--stone);font-size:.95rem;color:#3d3b36}
+table{border-collapse:collapse;width:100%;font-size:1.05rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{border-bottom:2px solid var(--ink);font-size:.9rem;color:var(--muted)}
+.cols{display:grid;gap:18px}.cols.n3{grid-template-columns:repeat(3,1fr)}.cols.n6{grid-template-columns:repeat(3,1fr)}
+.col{border-top:2px solid var(--ink);padding-top:10px;font-size:1rem}
+pre{background:var(--ink);color:#f2efe6;padding:16px 20px;font-size:1rem;overflow:auto;margin:0 0 16px}
+.src{padding-left:1.4em;font-size:1rem}.src a{color:var(--navy);word-break:break-all;font-size:.85rem}
+.basis{margin-top:22px;padding-top:10px;border-top:1px solid var(--rule);font-size:.78rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.basis a{color:var(--navy)}
+.title{background:var(--navy);color:#fff;border-top:6px solid var(--accent);justify-content:center;min-height:520px}
+.title h1{font-size:2.6rem;margin:6px 0 16px}.title .kicker{color:#e8c98b}.title .sub{font-size:1.2rem;color:#c9d3e6;margin:0}
+.nav{position:sticky;bottom:0;background:var(--navy);color:#fff;display:flex;gap:12px;align-items:center;justify-content:center;padding:8px;font-size:.9rem}
+.nav button{background:none;border:1px solid #fff;color:#fff;padding:4px 14px;cursor:pointer;font-size:.9rem}
+.hint{color:#c9d3e6}
+@media(max-width:700px){.slide{padding:28px 20px 18px;min-height:0}h2{font-size:1.45rem}.title h1{font-size:1.8rem}.cols.n3,.cols.n6{grid-template-columns:1fr}.body{font-size:1.05rem}}
+@media(min-width:701px){.deck.present .slide{display:none}.deck.present .slide.on{display:flex}}
+@media print{.nav{display:none}.slide{break-after:page;margin:0;border-top:0}body{background:#fff}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide title" id="s1"><p class="kicker">教學簡報</p><h1>AGENTS.md：寫給 AI 看的專案說明書</h1><p class="sub">用 LLM Wiki 整理 5 份資料，再做成的簡報</p></section>
+<section class="slide" id="s2"><p class="kicker">先從一個問題開始</p><h2>AI 每次開新對話，都像新來的同事</h2><div class="body"><ul><li>你昨天教過它的專案規則，今天它不一定記得。</li><li>所以才需要一份「放在專案裡、每次都讓它先讀」的說明書。</li><li>Claude Code 的做法：每次開新對話，都會先讀 CLAUDE.md。</li></ul></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/claude-md.md" target="_blank" rel="noopener">claude-md.md</a></div></section>
+<section class="slide" id="s3"><p class="kicker">是什麼</p><h2>AGENTS.md＝給 AI 的 README</h2><div class="body"><ul><li>放在專案裡的一份純 Markdown 檔。</li><li>README 給人看；AGENTS.md 放 AI 需要的細節（建置、測試、慣例）。</li><li>沒有必填欄位，標題自己取。</li><li>官網自述超過 60k 個開源專案在用。</li></ul></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/agents-md.md" target="_blank" rel="noopener">agents-md.md</a></div></section>
+<section class="slide" id="s4"><p class="kicker">裡面要寫什麼</p><h2>好檔案常涵蓋六個面向</h2><div class="body"><div class="cols n6"><div class="col"><h3>指令</h3><ul><li>怎麼安裝、建置、測試</li><li>指令要帶參數</li></ul></div><div class="col"><h3>測試</h3><ul><li>改完要跑什麼</li><li>失敗要修到過</li></ul></div><div class="col"><h3>專案結構</h3><ul><li>哪個資料夾放什麼</li></ul></div><div class="col"><h3>程式風格</h3><ul><li>用一小段範例示範</li></ul></div><div class="col"><h3>git 流程</h3><ul><li>commit、PR 的規範</li></ul></div><div class="col"><h3>邊界</h3><ul><li>哪些事不能做</li></ul></div></div><p class="note">六個面向是 GitHub 一位作者分析 2,500+ 份檔案後的主張，文章沒有公開分析方法，請當成做法建議。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/writing-good-agents-md.md" target="_blank" rel="noopener">writing-good-agents-md.md</a></div></section>
+<section class="slide" id="s5"><p class="kicker">寫法</p><h2>空泛 vs 具體</h2><div class="body"><table><thead><tr><th>空泛（AI 很難照做）</th><th>具體（可以檢查）</th></tr></thead><tbody><tr><td>好好排版</td><td>用 2 個空格縮排</td></tr><tr><td>你是一個很有幫助的助理</td><td>你是文件撰寫員，只改 docs/，不碰 src/</td></tr><tr><td>要測試</td><td>改完跑 npm test，失敗要修到過</td></tr></tbody></table><p class="note">第一列取自 Claude 官方文件的例子；第二、三列是依 GitHub 文章的原則改寫的示範。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/writing-good-agents-md.md" target="_blank" rel="noopener">writing-good-agents-md.md</a><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/boundaries.md" target="_blank" rel="noopener">boundaries.md</a></div></section>
+<section class="slide" id="s6"><p class="kicker">誰讀得到它</p><h2>不同工具，讀法不一樣</h2><div class="body"><table><thead><tr><th>工具</th><th>怎麼讀</th></tr></thead><tbody><tr><td>Codex</td><td>讀 AGENTS.md（每層可用 AGENTS.override.md 取代）</td></tr><tr><td>Claude Code</td><td>可讀 AGENTS.md（v2.1.277 以上）；預設在找不到 CLAUDE.md 時才讀</td></tr><tr><td>agents.md 官網</td><td>支援清單有 Codex、Cursor、Gemini CLI 等；清單沒列 Claude Code，也沒提到 CLAUDE.md</td></tr></tbody></table><p class="note">官網清單沒列，不代表不支援：Claude 的官方文件寫明可以讀。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/claude-md.md" target="_blank" rel="noopener">claude-md.md</a><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/instruction-priority.md" target="_blank" rel="noopener">instruction-priority.md</a><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/conflicts.md" target="_blank" rel="noopener">conflicts.md</a></div></section>
+<section class="slide" id="s7"><p class="kicker">兩邊都要支援</p><h2>CLAUDE.md 只寫一行：@AGENTS.md</h2><div class="body"><pre># CLAUDE.md
+@AGENTS.md
+
+## Claude Code 專屬
+- （這裡才寫只有 Claude 需要的事）</pre><ul><li>共同規則只維護一份（AGENTS.md），不會兩邊越改越不一樣。</li><li>也可以用 symlink，但 Windows 上可能變成純文字，所以匯入（@）比較穩。</li></ul></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/claude-md.md" target="_blank" rel="noopener">claude-md.md</a></div></section>
+<section class="slide" id="s8"><p class="kicker">多份檔案怎麼辦</p><h2>共通原則：越靠近工作位置越優先</h2><div class="body"><div class="cols n3"><div class="col"><h3>agents.md 官網</h3><ul><li>讀「最近的那份」</li><li>使用者在聊天中直接說的，蓋過一切</li></ul></div><div class="col"><h3>Codex</h3><ul><li>從專案根往下串接</li><li>越近的排越後面，所以蓋過前面</li><li>每層最多採用一個檔案</li></ul></div><div class="col"><h3>Claude Code</h3><ul><li>祖先目錄的檔案全部串接，不是覆蓋</li><li>最近的最後讀</li><li>子目錄的檔案用到才載入</li></ul></div></div><p class="note">三家的機制不同，所以不能一概說「覆蓋」。而且沒有任何來源保證 AI 一定遵守。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/instruction-priority.md" target="_blank" rel="noopener">instruction-priority.md</a></div></section>
+<section class="slide" id="s9"><p class="kicker">別寫太長</p><h2>太長，AI 反而讀不好</h2><div class="body"><ul><li>Codex：預設累積到 32 KiB 就停止讀取；範例把上限調到 65536。</li><li>越具體（越靠近工作目錄）的檔案排越後面，反而可能被截掉。</li><li>Claude Code：建議每份少於 200 行。</li><li>解法：大專案把規則拆到子目錄，各放一份。</li></ul></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/size-limits.md" target="_blank" rel="noopener">size-limits.md</a></div></section>
+<section class="slide" id="s10"><p class="kicker">邊界</p><h2>把「能做、先問、不能做」分開寫</h2><div class="body"><table><thead><tr><th>層級</th><th>例子</th></tr></thead><tbody><tr><td>Always do（一律做）</td><td>寫入 src/ 和 tests/、commit 前先跑測試</td></tr><tr><td>Ask first（先問）</td><td>改資料庫結構、加新套件、改 CI/CD</td></tr><tr><td>Never do（不要做）</td><td>commit 機密、改 node_modules 或 vendor、刪掉失敗的測試</td></tr></tbody></table><p class="note">文字只是引導。真的不能發生的事，要用 hook 或權限設定擋住。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/boundaries.md" target="_blank" rel="noopener">boundaries.md</a></div></section>
+<section class="slide" id="s11"><p class="kicker">延伸：同一個概念放大</p><h2>AGENTS.md 也能管整個知識庫（LLM Wiki）</h2><div class="body"><div class="cols n3"><div class="col"><h3>raw</h3><ul><li>原始資料</li><li>只增不改，是真相來源</li></ul></div><div class="col"><h3>wiki</h3><ul><li>AI 整理的 markdown 頁面</li><li>互相連結，會持續更新</li></ul></div><div class="col"><h3>schema</h3><ul><li>就是 AGENTS.md 或 CLAUDE.md</li><li>規定怎麼整理、怎麼檢查</li></ul></div></div><p class="note">三個操作：ingest（放進新資料）、query（用 wiki 回答）、lint（找矛盾與孤兒頁）。這份簡報就是照這套做出來的。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/llm-wiki-pattern.md" target="_blank" rel="noopener">llm-wiki-pattern.md</a><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/schema-file.md" target="_blank" rel="noopener">schema-file.md</a></div></section>
+<section class="slide" id="s12"><p class="kicker">自己檢查一次</p><h2>寫完 AGENTS.md，問自己 5 件事</h2><div class="body"><ul><li>AI 看得出指令要怎麼跑嗎？（有帶參數的指令）</li><li>有沒有寫「不能碰什麼」？</li><li>有沒有一段真實範例，而不是只有形容詞？</li><li>有沒有互相矛盾、或太長的地方？</li><li>AI 出錯時，我有把原因補回這份檔案嗎？</li></ul><p class="note">這是依前面各頁整理的自我檢查，不是任何來源的原文。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/writing-good-agents-md.md" target="_blank" rel="noopener">writing-good-agents-md.md</a></div></section>
+<section class="slide" id="s13"><p class="kicker">資料與限制</p><h2>這份簡報依據的 5 份來源</h2><div class="body"><ol class='src'><li><b>S1</b> Karpathy：LLM Wiki（gist，2026-04-04）<br><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f</a></li><li><b>S2</b> agents.md 官方網站<br><a href="https://agents.md/" target="_blank" rel="noopener">https://agents.md/</a></li><li><b>S3</b> GitHub Blog：How to write a great agents.md（2025-11）<br><a href="https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/" target="_blank" rel="noopener">https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/</a></li><li><b>S4</b> Claude Code 文件：How Claude remembers your project<br><a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">https://code.claude.com/docs/en/memory</a></li><li><b>S5</b> OpenAI Codex 文件：Custom instructions with AGENTS.md<br><a href="https://developers.openai.com/codex/guides/agents-md" target="_blank" rel="noopener">https://developers.openai.com/codex/guides/agents-md</a></li></ol><p class="note">限制：S3 沒有公開分析方法；「60k」是官網自述；版本號與預設值會隨工具更新而改變，資料讀取日 2026-11-23。</p></div><div class="basis"><span>依據的 wiki 頁面</span><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/index.md" target="_blank" rel="noopener">index.md</a><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/conflicts.md" target="_blank" rel="noopener">conflicts.md</a><a href="https://github.com/yab900425/llm-wiki-agents-md/blob/main/wiki/concepts/agents-md.md" target="_blank" rel="noopener">agents-md.md</a></div></section>
+</main>
+<div class="nav"><button id="prev">← 上一頁</button><span id="pos"></span><button id="next">下一頁 →</button><button id="mode">投影模式</button><span class="hint">鍵盤 ← → 換頁</span></div>
+<script>
+(function(){
+  var deck=document.getElementById('deck'),sl=[].slice.call(deck.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+  function show(n){i=Math.max(0,Math.min(sl.length-1,n));sl.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    pos.textContent=(i+1)+' / '+sl.length;
+    if(!deck.classList.contains('present'))sl[i].scrollIntoView({behavior:'smooth',block:'start'});}
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.getElementById('mode').onclick=function(){deck.classList.toggle('present');show(i)};
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='PageDown')show(i+1);if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1);});
+  show(0);window.scrollTo(0,0);
+})();
+</script>
+</body>
+</html>

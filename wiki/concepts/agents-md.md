@@ -1,0 +1,11 @@
+# AGENTS.md 是什麼
+- 一份放在專案裡的純 Markdown 檔，專門寫給 AI coding agent 看，被稱為「給 agent 的 README」。[S2]
+- README 給人看；AGENTS.md 放 agent 需要的細節，例如建置、測試、慣例，避免 README 變雜。[S2]
+- 沒有必填欄位，標題可以自己取。[S2]
+- 官網自述超過 60k 個開源專案在用。[S2]
+- 由 OpenAI Codex、Amp、Google Jules、Cursor、Factory 等協作而來，現由 Agentic AI Foundation（Linux Foundation 旗下）管理。[S2]
+- 常見內容：專案概述、建置與測試指令、程式風格、測試說明、安全注意事項，另外有 commit/PR 規範、部署步驟。[S2]
+- 官網的支援清單列了 Codex、Jules、Cursor、Gemini CLI、Aider、Zed、Windsurf、GitHub Copilot coding agent 等工具。[S2]
+- 建議當活文件，agent 出錯就更新它。[S2]
+- 用在 LLM Wiki 時，AGENTS.md 就是 schema：規定 wiki 怎麼組織、ingest/query/lint 怎麼做。[S1]
+相關：[[claude-md]]、[[instruction-priority]]、[[writing-good-agents-md]]、[[schema-file]]

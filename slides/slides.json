@@ -1,0 +1,659 @@
+{
+  "title": "AGENTS.md：寫給 AI 看的專案說明書",
+  "slides": [
+    {
+      "layout": "title",
+      "kicker": "教學簡報",
+      "title": "AGENTS.md：寫給 AI 看的專案說明書",
+      "sub": "用 LLM Wiki 整理 5 份資料，再做成的簡報",
+      "refs": [
+        "wiki/index.md"
+      ],
+      "facts": [
+        {
+          "claim": "Wiki 收錄 5 份來源",
+          "refs": [
+            "wiki/index.md"
+          ],
+          "must": [
+            "來源 5 份"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "list",
+      "kicker": "先從一個問題開始",
+      "title": "AI 每次開新對話，都像新來的同事",
+      "items": [
+        "你昨天教過它的專案規則，今天它不一定記得。",
+        "所以才需要一份「放在專案裡、每次都讓它先讀」的說明書。",
+        "Claude Code 的做法：每次開新對話，都會先讀 CLAUDE.md。"
+      ],
+      "refs": [
+        "wiki/concepts/claude-md.md"
+      ],
+      "facts": [
+        {
+          "claim": "Claude Code 每次開新對話都會讀 CLAUDE.md",
+          "refs": [
+            "wiki/concepts/claude-md.md"
+          ],
+          "must": [
+            "每次開新對話"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "list",
+      "kicker": "是什麼",
+      "title": "AGENTS.md＝給 AI 的 README",
+      "items": [
+        "放在專案裡的一份純 Markdown 檔。",
+        "README 給人看；AGENTS.md 放 AI 需要的細節（建置、測試、慣例）。",
+        "沒有必填欄位，標題自己取。",
+        "官網自述超過 60k 個開源專案在用。"
+      ],
+      "refs": [
+        "wiki/concepts/agents-md.md"
+      ],
+      "facts": [
+        {
+          "claim": "是純 Markdown，給 coding agent 看，像給 agent 的 README",
+          "refs": [
+            "wiki/concepts/agents-md.md"
+          ],
+          "must": [
+            "純 Markdown",
+            "README"
+          ]
+        },
+        {
+          "claim": "沒有必填欄位",
+          "refs": [
+            "wiki/concepts/agents-md.md"
+          ],
+          "must": [
+            "沒有必填欄位"
+          ]
+        },
+        {
+          "claim": "官網自述超過 60k 個專案在用",
+          "refs": [
+            "wiki/concepts/agents-md.md"
+          ],
+          "must": [
+            "60k"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "cols",
+      "kicker": "裡面要寫什麼",
+      "title": "好檔案常涵蓋六個面向",
+      "cols": [
+        {
+          "head": "指令",
+          "items": [
+            "怎麼安裝、建置、測試",
+            "指令要帶參數"
+          ]
+        },
+        {
+          "head": "測試",
+          "items": [
+            "改完要跑什麼",
+            "失敗要修到過"
+          ]
+        },
+        {
+          "head": "專案結構",
+          "items": [
+            "哪個資料夾放什麼"
+          ]
+        },
+        {
+          "head": "程式風格",
+          "items": [
+            "用一小段範例示範"
+          ]
+        },
+        {
+          "head": "git 流程",
+          "items": [
+            "commit、PR 的規範"
+          ]
+        },
+        {
+          "head": "邊界",
+          "items": [
+            "哪些事不能做"
+          ]
+        }
+      ],
+      "note": "六個面向是 GitHub 一位作者分析 2,500+ 份檔案後的主張，文章沒有公開分析方法，請當成做法建議。",
+      "refs": [
+        "wiki/concepts/writing-good-agents-md.md"
+      ],
+      "facts": [
+        {
+          "claim": "六面向：指令、測試、專案結構、程式風格、git 流程、邊界",
+          "refs": [
+            "wiki/concepts/writing-good-agents-md.md"
+          ],
+          "must": [
+            "六個面向",
+            "git 流程"
+          ]
+        },
+        {
+          "claim": "分析 2,500+ 份，作者沒有公開方法",
+          "refs": [
+            "wiki/concepts/writing-good-agents-md.md"
+          ],
+          "must": [
+            "2,500+",
+            "沒有公開分析方法"
+          ]
+        },
+        {
+          "claim": "指令要帶參數、風格用範例",
+          "refs": [
+            "wiki/concepts/writing-good-agents-md.md"
+          ],
+          "must": [
+            "帶參數",
+            "真實程式碼"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "table",
+      "kicker": "寫法",
+      "title": "空泛 vs 具體",
+      "head": [
+        "空泛（AI 很難照做）",
+        "具體（可以檢查）"
+      ],
+      "rows": [
+        [
+          "好好排版",
+          "用 2 個空格縮排"
+        ],
+        [
+          "你是一個很有幫助的助理",
+          "你是文件撰寫員，只改 docs/，不碰 src/"
+        ],
+        [
+          "要測試",
+          "改完跑 npm test，失敗要修到過"
+        ]
+      ],
+      "note": "第一列取自 Claude 官方文件的例子；第二、三列是依 GitHub 文章的原則改寫的示範。",
+      "refs": [
+        "wiki/concepts/writing-good-agents-md.md",
+        "wiki/concepts/boundaries.md"
+      ],
+      "facts": [
+        {
+          "claim": "Claude 文件舉例：用 2 個空格縮排勝過好好排版",
+          "refs": [
+            "wiki/concepts/writing-good-agents-md.md"
+          ],
+          "must": [
+            "2 個空格縮排",
+            "好好排版"
+          ]
+        },
+        {
+          "claim": "失敗的檔案多半是空泛人設，有效的有專門角色與可執行指令",
+          "refs": [
+            "wiki/concepts/writing-good-agents-md.md"
+          ],
+          "must": [
+            "空泛人設",
+            "專門角色"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "table",
+      "kicker": "誰讀得到它",
+      "title": "不同工具，讀法不一樣",
+      "head": [
+        "工具",
+        "怎麼讀"
+      ],
+      "rows": [
+        [
+          "Codex",
+          "讀 AGENTS.md（每層可用 AGENTS.override.md 取代）"
+        ],
+        [
+          "Claude Code",
+          "可讀 AGENTS.md（v2.1.277 以上）；預設在找不到 CLAUDE.md 時才讀"
+        ],
+        [
+          "agents.md 官網",
+          "支援清單有 Codex、Cursor、Gemini CLI 等；清單沒列 Claude Code，也沒提到 CLAUDE.md"
+        ]
+      ],
+      "note": "官網清單沒列，不代表不支援：Claude 的官方文件寫明可以讀。",
+      "refs": [
+        "wiki/concepts/claude-md.md",
+        "wiki/concepts/instruction-priority.md",
+        "wiki/conflicts.md"
+      ],
+      "facts": [
+        {
+          "claim": "Claude Code 可讀 AGENTS.md，v2.1.277 以上，預設只在找不到 CLAUDE.md 時才讀",
+          "refs": [
+            "wiki/concepts/claude-md.md"
+          ],
+          "must": [
+            "v2.1.277",
+            "找不到 CLAUDE.md"
+          ]
+        },
+        {
+          "claim": "官網清單沒列 Claude Code",
+          "refs": [
+            "wiki/concepts/claude-md.md"
+          ],
+          "must": [
+            "沒有 Claude Code"
+          ]
+        },
+        {
+          "claim": "Codex 用 AGENTS.override.md 取代同層 AGENTS.md",
+          "refs": [
+            "wiki/concepts/instruction-priority.md"
+          ],
+          "must": [
+            "AGENTS.override.md"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "code",
+      "kicker": "兩邊都要支援",
+      "title": "CLAUDE.md 只寫一行：@AGENTS.md",
+      "code": "# CLAUDE.md\n@AGENTS.md\n\n## Claude Code 專屬\n- （這裡才寫只有 Claude 需要的事）",
+      "items": [
+        "共同規則只維護一份（AGENTS.md），不會兩邊越改越不一樣。",
+        "也可以用 symlink，但 Windows 上可能變成純文字，所以匯入（@）比較穩。"
+      ],
+      "refs": [
+        "wiki/concepts/claude-md.md"
+      ],
+      "facts": [
+        {
+          "claim": "建議 CLAUDE.md 寫一行 @AGENTS.md，下面補 Claude 專屬內容",
+          "refs": [
+            "wiki/concepts/claude-md.md"
+          ],
+          "must": [
+            "@AGENTS.md",
+            "Claude 專屬"
+          ]
+        },
+        {
+          "claim": "symlink 在 Windows 上可能變成純文字",
+          "refs": [
+            "wiki/concepts/claude-md.md"
+          ],
+          "must": [
+            "Windows",
+            "純文字"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "cols",
+      "kicker": "多份檔案怎麼辦",
+      "title": "共通原則：越靠近工作位置越優先",
+      "cols": [
+        {
+          "head": "agents.md 官網",
+          "items": [
+            "讀「最近的那份」",
+            "使用者在聊天中直接說的，蓋過一切"
+          ]
+        },
+        {
+          "head": "Codex",
+          "items": [
+            "從專案根往下串接",
+            "越近的排越後面，所以蓋過前面",
+            "每層最多採用一個檔案"
+          ]
+        },
+        {
+          "head": "Claude Code",
+          "items": [
+            "祖先目錄的檔案全部串接，不是覆蓋",
+            "最近的最後讀",
+            "子目錄的檔案用到才載入"
+          ]
+        }
+      ],
+      "note": "三家的機制不同，所以不能一概說「覆蓋」。而且沒有任何來源保證 AI 一定遵守。",
+      "refs": [
+        "wiki/concepts/instruction-priority.md"
+      ],
+      "facts": [
+        {
+          "claim": "agents.md：最近的那份優先，聊天指令蓋過一切",
+          "refs": [
+            "wiki/concepts/instruction-priority.md"
+          ],
+          "must": [
+            "最近的那份",
+            "聊天中直接下的指令"
+          ]
+        },
+        {
+          "claim": "Codex：串接，越近排越後，每層最多一個檔案",
+          "refs": [
+            "wiki/concepts/instruction-priority.md"
+          ],
+          "must": [
+            "每層最多採用一個檔案",
+            "越近的排越後面"
+          ]
+        },
+        {
+          "claim": "Claude Code：串接不是覆蓋，最近的最後讀",
+          "refs": [
+            "wiki/concepts/instruction-priority.md"
+          ],
+          "must": [
+            "串接而非覆蓋",
+            "最近的最後讀"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "list",
+      "kicker": "別寫太長",
+      "title": "太長，AI 反而讀不好",
+      "items": [
+        "Codex：預設累積到 32 KiB 就停止讀取；範例把上限調到 65536。",
+        "越具體（越靠近工作目錄）的檔案排越後面，反而可能被截掉。",
+        "Claude Code：建議每份少於 200 行。",
+        "解法：大專案把規則拆到子目錄，各放一份。"
+      ],
+      "refs": [
+        "wiki/concepts/size-limits.md"
+      ],
+      "facts": [
+        {
+          "claim": "Codex 預設 32 KiB，範例 65536，到上限就停止",
+          "refs": [
+            "wiki/concepts/size-limits.md"
+          ],
+          "must": [
+            "32 KiB",
+            "65536"
+          ]
+        },
+        {
+          "claim": "Claude 建議每份少於 200 行",
+          "refs": [
+            "wiki/concepts/size-limits.md"
+          ],
+          "must": [
+            "200 行"
+          ]
+        },
+        {
+          "claim": "具體的檔案可能被截掉",
+          "refs": [
+            "wiki/concepts/size-limits.md"
+          ],
+          "must": [
+            "可能被截掉"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "table",
+      "kicker": "邊界",
+      "title": "把「能做、先問、不能做」分開寫",
+      "head": [
+        "層級",
+        "例子"
+      ],
+      "rows": [
+        [
+          "Always do（一律做）",
+          "寫入 src/ 和 tests/、commit 前先跑測試"
+        ],
+        [
+          "Ask first（先問）",
+          "改資料庫結構、加新套件、改 CI/CD"
+        ],
+        [
+          "Never do（不要做）",
+          "commit 機密、改 node_modules 或 vendor、刪掉失敗的測試"
+        ]
+      ],
+      "note": "文字只是引導。真的不能發生的事，要用 hook 或權限設定擋住。",
+      "refs": [
+        "wiki/concepts/boundaries.md"
+      ],
+      "facts": [
+        {
+          "claim": "邊界分 Always／Ask first／Never 三層",
+          "refs": [
+            "wiki/concepts/boundaries.md"
+          ],
+          "must": [
+            "Always do",
+            "Ask first",
+            "Never do"
+          ]
+        },
+        {
+          "claim": "例子：改資料庫結構、加新套件、改 CI/CD 要先問",
+          "refs": [
+            "wiki/concepts/boundaries.md"
+          ],
+          "must": [
+            "改資料庫結構",
+            "改 CI/CD"
+          ]
+        },
+        {
+          "claim": "測試 agent 不可以刪掉失敗的測試",
+          "refs": [
+            "wiki/concepts/boundaries.md"
+          ],
+          "must": [
+            "不可以刪掉失敗的測試"
+          ]
+        },
+        {
+          "claim": "硬性禁止要用 hook 或 permissions.deny",
+          "refs": [
+            "wiki/concepts/boundaries.md"
+          ],
+          "must": [
+            "hook",
+            "permissions.deny"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "cols",
+      "kicker": "延伸：同一個概念放大",
+      "title": "AGENTS.md 也能管整個知識庫（LLM Wiki）",
+      "cols": [
+        {
+          "head": "raw",
+          "items": [
+            "原始資料",
+            "只增不改，是真相來源"
+          ]
+        },
+        {
+          "head": "wiki",
+          "items": [
+            "AI 整理的 markdown 頁面",
+            "互相連結，會持續更新"
+          ]
+        },
+        {
+          "head": "schema",
+          "items": [
+            "就是 AGENTS.md 或 CLAUDE.md",
+            "規定怎麼整理、怎麼檢查"
+          ]
+        }
+      ],
+      "note": "三個操作：ingest（放進新資料）、query（用 wiki 回答）、lint（找矛盾與孤兒頁）。這份簡報就是照這套做出來的。",
+      "refs": [
+        "wiki/concepts/llm-wiki-pattern.md",
+        "wiki/concepts/schema-file.md"
+      ],
+      "facts": [
+        {
+          "claim": "三層：raw、wiki、schema",
+          "refs": [
+            "wiki/concepts/llm-wiki-pattern.md"
+          ],
+          "must": [
+            "raw",
+            "wiki",
+            "schema"
+          ]
+        },
+        {
+          "claim": "操作：ingest、query、lint",
+          "refs": [
+            "wiki/concepts/llm-wiki-pattern.md"
+          ],
+          "must": [
+            "ingest",
+            "query",
+            "lint"
+          ]
+        },
+        {
+          "claim": "schema 檔規定 wiki 怎麼組織與工作流程",
+          "refs": [
+            "wiki/concepts/schema-file.md"
+          ],
+          "must": [
+            "schema"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "list",
+      "kicker": "自己檢查一次",
+      "title": "寫完 AGENTS.md，問自己 5 件事",
+      "items": [
+        "AI 看得出指令要怎麼跑嗎？（有帶參數的指令）",
+        "有沒有寫「不能碰什麼」？",
+        "有沒有一段真實範例，而不是只有形容詞？",
+        "有沒有互相矛盾、或太長的地方？",
+        "AI 出錯時，我有把原因補回這份檔案嗎？"
+      ],
+      "note": "這是依前面各頁整理的自我檢查，不是任何來源的原文。",
+      "refs": [
+        "wiki/concepts/writing-good-agents-md.md"
+      ],
+      "facts": [
+        {
+          "claim": "指令帶參數、有邊界、用範例、移除矛盾、出錯再補",
+          "refs": [
+            "wiki/concepts/writing-good-agents-md.md"
+          ],
+          "must": [
+            "帶參數",
+            "移除互相矛盾",
+            "出錯再補"
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "sources",
+      "kicker": "資料與限制",
+      "title": "這份簡報依據的 5 份來源",
+      "sources": [
+        [
+          "S1",
+          "Karpathy：LLM Wiki（gist，2026-04-04）",
+          "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+        ],
+        [
+          "S2",
+          "agents.md 官方網站",
+          "https://agents.md/"
+        ],
+        [
+          "S3",
+          "GitHub Blog：How to write a great agents.md（2025-11）",
+          "https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/"
+        ],
+        [
+          "S4",
+          "Claude Code 文件：How Claude remembers your project",
+          "https://code.claude.com/docs/en/memory"
+        ],
+        [
+          "S5",
+          "OpenAI Codex 文件：Custom instructions with AGENTS.md",
+          "https://developers.openai.com/codex/guides/agents-md"
+        ]
+      ],
+      "note": "限制：S3 沒有公開分析方法；「60k」是官網自述；版本號與預設值會隨工具更新而改變，資料讀取日 2026-11-23。",
+      "refs": [
+        "wiki/index.md",
+        "wiki/conflicts.md",
+        "wiki/concepts/agents-md.md"
+      ],
+      "facts": [
+        {
+          "claim": "Wiki 有 5 份來源",
+          "refs": [
+            "wiki/index.md"
+          ],
+          "must": [
+            "來源 5 份"
+          ]
+        },
+        {
+          "claim": "S3 沒有公開分析方法",
+          "refs": [
+            "wiki/conflicts.md"
+          ],
+          "must": [
+            "沒有說明分析方法"
+          ]
+        },
+        {
+          "claim": "60k 是官網自述數字",
+          "refs": [
+            "wiki/concepts/agents-md.md"
+          ],
+          "must": [
+            "60k"
+          ]
+        }
+      ]
+    }
+  ]
+}
